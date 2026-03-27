@@ -1,11 +1,10 @@
 from sqlmodel import create_engine, SQLModel, Session
 from typing import Annotated
 from fastapi import Depends
-
-DB_URL = "sqlite:///./products.db"
+from config import settings
 
 engine = create_engine(
-    DB_URL,
+    settings.db_url,
     connect_args={"check_same_thread": False}
 )
 
